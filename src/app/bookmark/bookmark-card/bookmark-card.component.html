@@ -1,0 +1,19 @@
+<ng-container *ngIf="bookmark$ | async as bookmark">
+  <mat-toolbar color="primary">
+    <span>{{ bookmark.name }}</span>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="onAdd(bookmark)">
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div *ngFor="let link of this.links$ | async">
+    <mat-card class="link" (click)="onLinkClick(link)">
+      <mat-card-title-group>
+        <mat-card-title>{{ link.title }}</mat-card-title>
+        <mat-card-subtitle>{{ link.siteName }}</mat-card-subtitle>
+        <img [src]="link.images[0]" alt="link_img" mat-card-md-image />
+      </mat-card-title-group>
+    </mat-card>
+  </div>
+</ng-container>

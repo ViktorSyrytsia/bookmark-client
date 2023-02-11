@@ -1,0 +1,21 @@
+<mat-toolbar class="header">
+  <a routerLink="/">
+    <h1>Booker</h1>
+  </a>
+  <ul class="nav">
+    <li *ngIf="isLoggedIn$ | async; else login">
+      <div>
+        <a (click)="onLogout()">Logout</a>
+      </div>
+    </li>
+  </ul>
+</mat-toolbar>
+
+<ng-template #login>
+  <li>
+    <div><a routerLink="/login">Login</a></div>
+  </li>
+  <li>
+    <div><a routerLink="/sign-up">Sign Up</a></div>
+  </li>
+</ng-template>
